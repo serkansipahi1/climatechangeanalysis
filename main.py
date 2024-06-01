@@ -62,7 +62,7 @@ for variable in variables:
 
     # Summary of the model
     print(stepwise_model.summary())
-    #alper
+
 
     # Forecasting
     forecast_steps = 2056 - 2024 + 1  # Predict until 2056
