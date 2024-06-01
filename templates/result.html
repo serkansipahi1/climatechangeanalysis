@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Result</h2>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% else %}
+            <h3>Forecast for the year {{ year }}</h3>
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>Indicator</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for indicator, result in results.items() %}
+                        <tr>
+                            <td>{{ indicator }}</td>
+                            <td>{{ result }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+</body>
+</html>

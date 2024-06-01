@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Climate Change Analysis</h1>
+        <form action="/result" method="post">
+            <div class="form-group">
+                <label for="indicator">Select Indicator:</label>
+                <select name="indicator" id="indicator">
+                    {% for variable in variables %}
+                        <option value="{{ variable }}">{{ variable }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="year">Select Year:</label>
+                <input type="number" id="year" name="year" min="2024" max="2056" value="2024">
+            </div>
+            <input type="submit" value="Predict" class="btn">
+        </form>
+    </div>
+</body>
+</html>
